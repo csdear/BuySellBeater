@@ -1,32 +1,33 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { WeatherService } from './services/weather.service';
-import { WeatherForecast } from './models/weather-forecast.model';
+import { HttpClientModule } from '@angular/common/http';
+import { MakeService } from './services/make.service';
+import { Make } from './models/make.model';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, CommonModule],
+  standalone: true,
+  imports: [CommonModule, HttpClientModule],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
   title = 'BuySellBeater.Client';
-  private weatherService = inject(WeatherService);
+  private makeService = inject(MakeService);
 
-  forecasts: WeatherForecast[] = [];
+  makes: Make[] = [];
   loading = true;
   errorMessage = '';
 
   ngOnInit(): void {
-    this.weatherService.getWeatherForecast().subscribe({
+    this.makeService.getMakes().subscribe({
       next: (data) => {
-        this.forecasts = data;
+        this.makes = data;
         this.loading = false;
       },
       error: (err) => {
-        console.error('Error fetching weather:', err);
-        this.errorMessage = 'Failed to load weather data. Make sure API is running.';
+        console.error('Error fetching makes:', err);
+        this.errorMessage = 'Failed to load vehicle data. Make sure the API is running and the URL is correct.';
         this.loading = false;
       }
     });
