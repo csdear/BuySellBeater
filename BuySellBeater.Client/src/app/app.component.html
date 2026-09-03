@@ -3,18 +3,39 @@
     <div>
       <h1>{{ title }}</h1>
       <p>Vehicle makes and models loaded from the BuySellBeater API.</p>
+      <mat-toolbar color="primary">My App</mat-toolbar>
+
+      <mat-card class="demo-card">
+        <mat-card-header>
+          <mat-card-title>Vehicle Inventory</mat-card-title>
+          <mat-card-subtitle>Quick overview</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p>This is a demo Material card showing the app is using Angular Material.</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-flat-button color="primary">View cars</button>
+          <button mat-button>Learn more</button>
+        </mat-card-actions>
+      </mat-card>
 
       <div *ngIf="loading" class="status">Loading vehicles…</div>
       <div *ngIf="errorMessage" class="status error">{{ errorMessage }}</div>
 
-      <ul *ngIf="!loading && !errorMessage && makes.length" class="make-list">
-        <li *ngFor="let make of makes" class="make-item">
-          <strong>{{ make.name }}</strong>
-          <ul class="model-list">
-            <li *ngFor="let model of make.models">{{ model.name }}</li>
-          </ul>
-        </li>
-      </ul>
+      <div *ngIf="!loading && !errorMessage && makes.length" class="make-grid">
+        <mat-card *ngFor="let make of makes" class="make-card">
+          <mat-card-header>
+            <mat-card-title>{{ make.name }}</mat-card-title>
+            <mat-card-subtitle>{{ make.models.length }} models</mat-card-subtitle>
+          </mat-card-header>
+
+          <mat-card-content>
+            <ul class="model-list">
+              <li *ngFor="let model of make.models">{{ model.name }}</li>
+            </ul>
+          </mat-card-content>
+        </mat-card>
+      </div>
 
       <div *ngIf="!loading && !errorMessage && !makes.length" class="status">
         No vehicle data available.

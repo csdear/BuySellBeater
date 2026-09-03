@@ -3,11 +3,14 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { MakeService } from './services/make.service';
 import { Make } from './models/make.model';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, HttpClientModule],
+  imports: [CommonModule, HttpClientModule, MatToolbarModule, MatButtonModule, MatCardModule],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
