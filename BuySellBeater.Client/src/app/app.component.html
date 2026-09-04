@@ -19,29 +19,7 @@
         </mat-card-actions>
       </mat-card>
 
-      <div *ngIf="loading" class="status">Loading vehicles…</div>
-      <div *ngIf="errorMessage" class="status error">{{ errorMessage }}</div>
-
-      <div *ngIf="!loading && !errorMessage && makes.length" class="make-grid">
-        <mat-card *ngFor="let make of makes" class="make-card">
-          <mat-card-header>
-            <mat-card-title>{{ make.name }}</mat-card-title>
-            <mat-card-subtitle>{{ make.models.length }} models</mat-card-subtitle>
-          </mat-card-header>
-
-          <mat-card-content>
-            <ul class="model-list">
-              <li *ngFor="let model of make.models">{{ model.name }}</li>
-            </ul>
-          </mat-card-content>
-        </mat-card>
-      </div>
-
       <vehicle-form></vehicle-form>
-
-      <div *ngIf="!loading && !errorMessage && !makes.length" class="status">
-        No vehicle data available.
-      </div>
     </div>
   </section>
 </main>

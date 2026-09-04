@@ -1,0 +1,33 @@
+.vehicle-card {
+  max-width: 520px;
+  margin: 24px auto;
+  padding: 8px 0;
+}
+
+.vehicle-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 8px;
+}
+
+.loading-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.status {
+  padding: 12px 0;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.status.error {
+  color: #b00020;
+}
+
+button {
+  align-self: flex-start;
+}
