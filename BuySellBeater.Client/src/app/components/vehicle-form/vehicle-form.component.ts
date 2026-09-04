@@ -2,10 +2,8 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'vehicle-form',
-  imports: [],
+  standalone: true,
   templateUrl: './vehicle-form.component.html',
-  styleUrl: './vehicle-form.component.scss'
+  styleUrls: ['./vehicle-form.component.scss']
 })
-export class VehicleFormComponent {
-
-}
+export class VehicleFormComponent {}
