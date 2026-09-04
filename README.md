@@ -1,5 +1,8 @@
 # Buy Sell Beater
 
+**beater (noun, informal):** An old or worn-out car, especially one that is inexpensive and used mainly as a basic means of transportation.
+**Example:** “He drives an old beater to work so he doesn’t have to worry about damaging his new car.”
+
 A full-stack sample application for browsing vehicle makes and models. The project combines an ASP.NET Core Web API with an Angular frontend and uses SQL Server + Entity Framework Core for persistence.
 
 ## Tech stack
